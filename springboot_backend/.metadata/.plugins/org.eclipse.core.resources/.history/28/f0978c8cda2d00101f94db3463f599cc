@@ -1,0 +1,15 @@
+package com.evega.website_backend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WebsiteBackendApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WebsiteBackendApplication.class, args);
+        String jwtSecret = System.getenv("JWT_SECRET");
+        System.out.println("JWT_SECRET from environment: " + jwtSecret); // Add this line
+    }
+
+}

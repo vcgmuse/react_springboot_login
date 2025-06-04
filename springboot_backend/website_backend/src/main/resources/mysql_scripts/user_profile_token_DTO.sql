@@ -1,0 +1,5 @@
+-- select * from users;
+-- Need to complete the User Profile DTO user profile informaiton is not being passed.
+-- select * from user_profiles;
+-- Need to gather device_id and other important information to keep track of which device is being used.
+-- select * from user_tokens;

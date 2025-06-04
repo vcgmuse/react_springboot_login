@@ -1,0 +1,36 @@
+package com.evega.website_backend.controllers;
+
+//import com.evega.website_backend.dto.UserProfileDTO;
+import com.evega.website_backend.models.User;
+import com.evega.website_backend.services.UserService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api")
+public class UserController {
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+//    @GetMapping("/user-profiles/{id}")
+//    public ResponseEntity<UserProfileDTO> getUserProfile(@PathVariable Long id) {
+//        UserProfileDTO userProfileDTO = userService.getUserProfile(id);
+//        if (userProfileDTO != null) {
+//            return ResponseEntity.ok(userProfileDTO);
+//        }
+//        return ResponseEntity.notFound().build();
+//    }
+
+    @GetMapping("/users/{id}") // Changed to /users/{id}
+    public ResponseEntity<User> getUser(@PathVariable Long id) { // Changed to Long id
+        User user = userService.findByUserId(id); // Changed to findByUserId
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        }
+        return ResponseEntity.notFound().build();
+    }
+    
+}
